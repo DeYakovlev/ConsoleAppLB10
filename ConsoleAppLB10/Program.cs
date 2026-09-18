@@ -11,10 +11,10 @@ namespace ConsoleAppLB10
     {
         static void Main(string[] args)
         {
-            //Task1();
-            //Task2();
-            //Task3();
-            //Task4();
+            Task1();
+            Task2();
+            Task3();
+            Task4();
             Task5();
         }
 
@@ -144,7 +144,11 @@ namespace ConsoleAppLB10
 
         public static void Task4() 
         {
-            List<Person> people = new List<Person>() 
+            Console.WriteLine("--- Начало Задания 4 ---");
+
+            Console.WriteLine("Коллекция 1:");
+
+            List<Person> peoples = new List<Person>() 
             {
                 new Person("Жмышенко", DateTime.Parse("15.02.1985"), "Специалист", 100, "ООО Мэгаюлюль"),
                 new Person("Валакас", DateTime.Parse("17.02.1985"), "Грузчик", 100, "ООО Мэгаюлюль"),
@@ -154,17 +158,30 @@ namespace ConsoleAppLB10
 
             };
 
-            List<ShortPerson> res = GetShortPersonByYearAndCompany(people, 1985, "Пожилая ветка сакуры");
+            foreach (var people in peoples)
+            {
+                Console.WriteLine(people);
+            }
+
+
+
+
+            List<ShortPerson> res = GetShortPersonByYearAndCompany(peoples, 1985, "Пожилая ветка сакуры");
             //Console.WriteLine(res);
+            Console.WriteLine("Коллекция 2:");
             foreach (var person in res)
             {
                 Console.WriteLine(person);
             }
-            
+
+            Console.WriteLine("--- Конец Задания 4 ---");
+
 
         }
         public static void Task5() 
         {
+            Console.WriteLine("--- Начало Задания 5 ---");
+
             List<Person2> people = new List<Person2>()
             {
                 new Person2("Жмышенко", 1985, "Специалист", 3000, new Company("ООО Мэгаюлюль", 2000)),
@@ -182,6 +199,7 @@ namespace ConsoleAppLB10
                 Console.WriteLine(item);
             }
 
+            Console.WriteLine("--- Начало Задания 5 ---");
             //Console.WriteLine(res);
 
 
@@ -226,6 +244,13 @@ namespace ConsoleAppLB10
                 Selary = selary;
                 Company = company;
             }
+
+            public override string ToString()
+            {
+                return $"{Name}, дата рождения: {BirthDate:dd.MM.yyyy}, должность: {Position} ,оклад: {Selary} ,компания: {Company}";
+            }
+
+
         }
 
         public class Company 
